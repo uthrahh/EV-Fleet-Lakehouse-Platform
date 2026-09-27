@@ -1,0 +1,56 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="800" height="450" fill="#f6f4ee"/>
+  <text x="40" y="44" font-size="20" font-weight="700" fill="#16181a">EV Fleet Lakehouse — Medallion Architecture</text>
+  <text x="40" y="66" font-size="13" fill="#55564f">6 source systems &#8594; Bronze &#8594; Silver &#8594; Gold &#8594; Power BI</text>
+
+  <!-- Source systems -->
+  <g font-size="11" fill="#16181a">
+    <rect x="30" y="110" width="120" height="34" fill="#ffffff" stroke="#c3bfae"/>
+    <text x="90" y="131" text-anchor="middle">Telematics/IoT</text>
+    <rect x="30" y="152" width="120" height="34" fill="#ffffff" stroke="#c3bfae"/>
+    <text x="90" y="173" text-anchor="middle">Fleet Mgmt</text>
+    <rect x="30" y="194" width="120" height="34" fill="#ffffff" stroke="#c3bfae"/>
+    <text x="90" y="215" text-anchor="middle">Trip Mgmt</text>
+    <rect x="30" y="236" width="120" height="34" fill="#ffffff" stroke="#c3bfae"/>
+    <text x="90" y="257" text-anchor="middle">Charging Mgmt</text>
+    <rect x="30" y="278" width="120" height="34" fill="#ffffff" stroke="#c3bfae"/>
+    <text x="90" y="299" text-anchor="middle">Diagnostics</text>
+    <rect x="30" y="320" width="120" height="34" fill="#ffffff" stroke="#c3bfae"/>
+    <text x="90" y="341" text-anchor="middle">Maintenance</text>
+  </g>
+
+  <!-- arrows to bronze -->
+  <path d="M150 227 H210" stroke="#a9a89b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Bronze -->
+  <rect x="210" y="150" width="150" height="150" fill="#fbf1e6" stroke="#cc5500" stroke-width="1.5"/>
+  <text x="285" y="220" text-anchor="middle" font-size="15" font-weight="700" fill="#cc5500">BRONZE</text>
+  <text x="285" y="240" text-anchor="middle" font-size="10.5" fill="#55564f">Raw, source-aligned</text>
+  <text x="285" y="255" text-anchor="middle" font-size="10.5" fill="#55564f">Auto Loader ingestion</text>
+
+  <path d="M360 225 H420" stroke="#a9a89b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Silver -->
+  <rect x="420" y="150" width="150" height="150" fill="#f2f0ec" stroke="#85847a" stroke-width="1.5"/>
+  <text x="495" y="215" text-anchor="middle" font-size="15" font-weight="700" fill="#55564f">SILVER</text>
+  <text x="495" y="235" text-anchor="middle" font-size="10.5" fill="#55564f">Cleaned, deduplicated,</text>
+  <text x="495" y="250" text-anchor="middle" font-size="10.5" fill="#55564f">standardized, integrated</text>
+
+  <path d="M570 225 H630" stroke="#a9a89b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Gold -->
+  <rect x="630" y="150" width="140" height="150" fill="#fdf6ea" stroke="#e07a1f" stroke-width="1.5"/>
+  <text x="700" y="215" text-anchor="middle" font-size="15" font-weight="700" fill="#e07a1f">GOLD</text>
+  <text x="700" y="235" text-anchor="middle" font-size="10.5" fill="#55564f">Business-level,</text>
+  <text x="700" y="250" text-anchor="middle" font-size="10.5" fill="#55564f">BI-optimized</text>
+
+  <!-- audit table -->
+  <rect x="285" y="375" width="380" height="40" fill="none" stroke="#c3bfae" stroke-dasharray="3,3"/>
+  <text x="475" y="399" text-anchor="middle" font-size="11" fill="#55564f">Delta audit table — run_id, record counts, quality status per run</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#a9a89b"/>
+    </marker>
+  </defs>
+</svg>
